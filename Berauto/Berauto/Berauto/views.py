@@ -18,6 +18,7 @@ def home():
 
 @app.route('/contact')
 def contact():
+    
     """Renders the contact page."""
     return render_template(
         'contact.html',

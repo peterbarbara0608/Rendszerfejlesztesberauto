@@ -7,7 +7,7 @@
     <ProjectGuid>93e79f96-e837-413a-a708-5b32042a166c</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <ProjectTypeGuids>{789894c7-04a9-4a11-a6b5-3f4435165112};{1b580a1a-fdb3-4b32-83e1-6407eb2722e6};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
-    <StartupFile>Berauto\run_app.py</StartupFile>
+    <StartupFile>Berauto\init_db.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -37,6 +37,21 @@
     <Compile Include="Berauto\app\main\__init__.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Berauto\app\models\address.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Berauto\app\models\car.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Berauto\app\models\rental.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Berauto\app\models\role.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Berauto\app\models\user.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Berauto\app\models\__init__.py">
       <SubType>Code</SubType>
     </Compile>
@@ -44,6 +59,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Berauto\config.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Berauto\init_db.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Berauto\run_app.py">

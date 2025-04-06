@@ -28,6 +28,33 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Berauto\app\blueprints\administrator\routes.py" />
+    <Compile Include="Berauto\app\blueprints\administrator\schemas.py" />
+    <Compile Include="Berauto\app\blueprints\administrator\services.py" />
+    <Compile Include="Berauto\app\blueprints\administrator\__init__.py" />
+    <Compile Include="Berauto\app\blueprints\car\routes.py" />
+    <Compile Include="Berauto\app\blueprints\car\schemas.py" />
+    <Compile Include="Berauto\app\blueprints\car\service.py" />
+    <Compile Include="Berauto\app\blueprints\car\__init__.py" />
+    <Compile Include="Berauto\app\blueprints\operator\routes.py" />
+    <Compile Include="Berauto\app\blueprints\operator\schemas.py" />
+    <Compile Include="Berauto\app\blueprints\operator\services.py" />
+    <Compile Include="Berauto\app\blueprints\operator\__init__.py" />
+    <Compile Include="Berauto\app\blueprints\user\routes.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Berauto\app\blueprints\user\schemas.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Berauto\app\blueprints\user\service.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Berauto\app\blueprints\user\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Berauto\app\blueprints\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Berauto\app\extensions.py">
       <SubType>Code</SubType>
     </Compile>
@@ -71,8 +98,13 @@
   <ItemGroup>
     <Folder Include="Berauto\" />
     <Folder Include="Berauto\app\" />
+    <Folder Include="Berauto\app\blueprints\car\" />
+    <Folder Include="Berauto\app\blueprints\administrator\" />
+    <Folder Include="Berauto\app\blueprints\operator\" />
+    <Folder Include="Berauto\app\blueprints\user\" />
     <Folder Include="Berauto\app\main\" />
     <Folder Include="Berauto\app\models\" />
+    <Folder Include="Berauto\app\blueprints\" />
     <Folder Include="Berauto\app\templates\" />
   </ItemGroup>
   <ItemGroup>

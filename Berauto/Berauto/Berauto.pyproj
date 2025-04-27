@@ -17,7 +17,8 @@
     <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
     <Name>Berauto</Name>
     <RootNamespace>Berauto</RootNamespace>
-    <InterpreterId>MSBuild|env3|$(MSBuildProjectFullPath)</InterpreterId>
+    <InterpreterId>Global|PythonCore|3.12</InterpreterId>
+    <WebBrowserPort>8888</WebBrowserPort>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,6 +41,16 @@
     <Compile Include="Berauto\app\blueprints\operator\schemas.py" />
     <Compile Include="Berauto\app\blueprints\operator\services.py" />
     <Compile Include="Berauto\app\blueprints\operator\__init__.py" />
+    <Compile Include="Berauto\app\blueprints\rental\routes.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Berauto\app\blueprints\rental\schemas.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Berauto\app\blueprints\rental\service.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Berauto\app\blueprints\rental\__init__.py" />
     <Compile Include="Berauto\app\blueprints\user\routes.py">
       <SubType>Code</SubType>
     </Compile>
@@ -56,12 +67,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Berauto\app\extensions.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Berauto\app\main\routes.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Berauto\app\main\__init__.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Berauto\app\models\address.py">
@@ -100,9 +105,9 @@
     <Folder Include="Berauto\app\" />
     <Folder Include="Berauto\app\blueprints\car\" />
     <Folder Include="Berauto\app\blueprints\administrator\" />
+    <Folder Include="Berauto\app\blueprints\rental\" />
     <Folder Include="Berauto\app\blueprints\operator\" />
     <Folder Include="Berauto\app\blueprints\user\" />
-    <Folder Include="Berauto\app\main\" />
     <Folder Include="Berauto\app\models\" />
     <Folder Include="Berauto\app\blueprints\" />
     <Folder Include="Berauto\app\templates\" />
@@ -113,24 +118,7 @@
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Interpreter Include="env2\">
-      <Id>env2</Id>
-      <Version>3.9</Version>
-      <Description>env2 (Python 3.9 (64-bit))</Description>
-      <InterpreterPath>Scripts\python.exe</InterpreterPath>
-      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
-      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
-      <Architecture>X64</Architecture>
-    </Interpreter>
-    <Interpreter Include="env3\">
-      <Id>env3</Id>
-      <Version>3.9</Version>
-      <Description>env3 (Python 3.9 (64-bit))</Description>
-      <InterpreterPath>Scripts\python.exe</InterpreterPath>
-      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
-      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
-      <Architecture>X64</Architecture>
-    </Interpreter>
+    <InterpreterReference Include="Global|PythonCore|3.12" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />
   <!-- Specify pre- and post-build commands in the BeforeBuild and 

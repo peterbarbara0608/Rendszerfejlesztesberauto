@@ -24,15 +24,7 @@ def create_app(config_class=Config):
     
 
     # Register blueprints here
-    from app.main import bp as main_bp
+    from app.blueprints import bp as main_bp
     app.register_blueprint(main_bp, url_prefix="/api")
-
-    #from apiflask import APIBlueprint
-    #bp=APIBlueprint('main', __name__, tag="main")
-    #from app.main import routes
-    
-    from app.blueprints.user import bp as bp_user
-    bp.register_blueprint(bp_user, url_prefix="/user")
-
 
     return app

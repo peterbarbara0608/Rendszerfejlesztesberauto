@@ -3,7 +3,8 @@ from apiflask import HTTPError
 from app.blueprints.car.schemas import CarRequestSchema, CarResponseSchema, RentalRequestSchema, RentalResponseSchema
 from app.blueprints.car.service import CarService
 
-bp = APIBlueprint('car', __name__, tag="Car")
+from app.blueprints.car import bp
+
 
 @bp.route('/')
 def index():

@@ -15,13 +15,8 @@ class AddressSchema(Schema):
 
     postalcode = fields.Integer()
 
- 
-
- 
 
 class UserRequestSchema(Schema):
-
-       
 
     name = fields.String()
 
@@ -34,69 +29,34 @@ class UserRequestSchema(Schema):
     address = fields.Nested(AddressSchema)
     
 
+class UserResponseSchema(Schema):
 
+    id = fields.Integer()
+
+    name = fields.String()
+
+    email = fields.String()
+
+    address = fields.Nested(AddressSchema)
+
+    token = fields.String()
+
+
+
+class UserLoginSchema(Schema):
+
+    email = String(validate=Email())
+
+    password = fields.String()
     
 
-    class UserResponseSchema(Schema):
 
-        id = fields.Integer()
+class PayloadSchema(Schema):
 
-        name = fields.String()
+    user_id = fields.Integer()
 
-        email = fields.String()
+    roles  = fields.List(fields.Nested(RoleSchema))
 
-        address = fields.Nested(AddressSchema)
+    exp = fields.Integer()
 
-
-
-
-    
-
-    class UserLoginSchema(Schema):
-
-        email = String(validate=Email())
-
-        password = fields.String()
         
-
-
-
-    @bp.post('/registrate')
-
-    @bp.input(UserRequestSchema, location="json")
-
-    @bp.output(UserResponseSchema)
-
-    def user_registrate(json_data):
-
-        success, response = UserService.user_registrate(json_data)
-
-        if success:
-
-            return response, 200
-
-        raise HTTPError(message=response, status_code=400)
-
-
-
-
-
-    
-
-    @bp.post('/login')
-
-    @bp.doc(tags=["user"])
-
-    @bp.input(UserLoginSchema, location="json")
-
-    @bp.output(UserResponseSchema)
-
-    def user_login(json_data):
-
-        success, response = UserService.user_login(json_data)
-
-        if success:
-
-            return response, 200
-
-        raise HTTPError(message=response, status_code=400)

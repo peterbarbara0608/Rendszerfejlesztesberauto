@@ -2,6 +2,7 @@ from app.extensions import db
 from app.models.car import Car
 from app.models.rental import Rental
 from sqlalchemy import select, and_
+from app.blueprints.car.schemas import CarResponseSchema, RentalResponseSchema
 
 class CarService:
     @staticmethod

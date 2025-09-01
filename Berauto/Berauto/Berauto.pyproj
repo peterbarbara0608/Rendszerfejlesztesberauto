@@ -17,7 +17,8 @@
     <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
     <Name>Berauto</Name>
     <RootNamespace>Berauto</RootNamespace>
-    <InterpreterId>MSBuild|env2|$(MSBuildProjectFullPath)</InterpreterId>
+    <InterpreterId>Global|PythonCore|3.12</InterpreterId>
+    <WebBrowserPort>8888</WebBrowserPort>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -28,13 +29,59 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Berauto\app\blueprints\administrator\routes.py" />
+    <Compile Include="Berauto\app\blueprints\administrator\schemas.py" />
+    <Compile Include="Berauto\app\blueprints\administrator\services.py" />
+    <Compile Include="Berauto\app\blueprints\administrator\__init__.py" />
+    <Compile Include="Berauto\app\blueprints\car\routes.py" />
+    <Compile Include="Berauto\app\blueprints\car\schemas.py" />
+    <Compile Include="Berauto\app\blueprints\car\service.py" />
+    <Compile Include="Berauto\app\blueprints\car\__init__.py" />
+    <Compile Include="Berauto\app\blueprints\operator\routes.py" />
+    <Compile Include="Berauto\app\blueprints\operator\schemas.py" />
+    <Compile Include="Berauto\app\blueprints\operator\services.py" />
+    <Compile Include="Berauto\app\blueprints\operator\__init__.py" />
+    <Compile Include="Berauto\app\blueprints\rental\routes.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Berauto\app\blueprints\rental\schemas.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Berauto\app\blueprints\rental\service.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Berauto\app\blueprints\rental\__init__.py" />
+    <Compile Include="Berauto\app\blueprints\user\routes.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Berauto\app\blueprints\user\schemas.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Berauto\app\blueprints\user\service.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Berauto\app\blueprints\user\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Berauto\app\blueprints\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Berauto\app\extensions.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Berauto\app\main\routes.py">
+    <Compile Include="Berauto\app\models\address.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Berauto\app\main\__init__.py">
+    <Compile Include="Berauto\app\models\car.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Berauto\app\models\rental.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Berauto\app\models\role.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Berauto\app\models\user.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Berauto\app\models\__init__.py">
@@ -46,6 +93,9 @@
     <Compile Include="Berauto\config.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Berauto\init_db.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Berauto\run_app.py">
       <SubType>Code</SubType>
     </Compile>
@@ -53,25 +103,24 @@
   <ItemGroup>
     <Folder Include="Berauto\" />
     <Folder Include="Berauto\app\" />
-    <Folder Include="Berauto\app\main\" />
+    <Folder Include="Berauto\app\blueprints\car\" />
+    <Folder Include="Berauto\app\blueprints\administrator\" />
+    <Folder Include="Berauto\app\blueprints\rental\" />
+    <Folder Include="Berauto\app\blueprints\operator\" />
+    <Folder Include="Berauto\app\blueprints\user\" />
     <Folder Include="Berauto\app\models\" />
+    <Folder Include="Berauto\app\blueprints\" />
     <Folder Include="Berauto\app\templates\" />
+    <Folder Include="Berauto\.ssh\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Berauto\.flaskenv" />
+    <Content Include="Berauto\.ssh\private-key.pem" />
     <Content Include="Berauto\app\templates\index.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Interpreter Include="env2\">
-      <Id>env2</Id>
-      <Version>3.9</Version>
-      <Description>env2 (Python 3.9 (64-bit))</Description>
-      <InterpreterPath>Scripts\python.exe</InterpreterPath>
-      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
-      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
-      <Architecture>X64</Architecture>
-    </Interpreter>
+    <InterpreterReference Include="Global|PythonCore|3.12" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />
   <!-- Specify pre- and post-build commands in the BeforeBuild and 
